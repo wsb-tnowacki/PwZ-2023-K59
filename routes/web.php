@@ -16,11 +16,11 @@ use \App\Http\Controllers\StartController;
 /* Route::get('/', function () {
     return view('ogolne.start');
 })->name('ogolne.start'); */
-Route::get('/',[StartController::class, 'lista'])->name('ogolne.start');
+
 /* Route::get('/kontakty', function () {
     return view('ogolne.kontakt');
 })->name('ogolne.kontakt'); */
-Route::get('/kontakty',[StartController::class, 'kontakt'])->name('ogolne.kontakt');
+
 
 /* Route::get('/onas', function () {
     $zadania = [
@@ -30,5 +30,12 @@ Route::get('/kontakty',[StartController::class, 'kontakt'])->name('ogolne.kontak
     ];
     return view('ogolne.onas', [ 'zadania' => $zadania]);
 })->name('ogolne.onas'); */
+/* Route::get('/',[StartController::class, 'lista'])->name('ogolne.start');
+Route::get('/kontakty',[StartController::class, 'kontakt'])->name('ogolne.kontakt');
+Route::get('/onas',[StartController::class, 'onas'])->name('ogolne.onas'); */
 
-Route::get('/onas',[StartController::class, 'onas'])->name('ogolne.onas');
+Route::controller(StartController::class)->group(function(){
+    Route::get('/','lista')->name('ogolne.start');
+    Route::get('/kontakty','kontakt')->name('ogolne.kontakt');
+    Route::get('/onas','onas')->name('ogolne.onas');
+});
