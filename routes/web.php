@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\StartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,19 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('ogolne.start');
-})->name('ogolne.start');
-
-Route::get('/kontakty', function () {
+})->name('ogolne.start'); */
+Route::get('/',[StartController::class, 'lista'])->name('ogolne.start');
+/* Route::get('/kontakty', function () {
     return view('ogolne.kontakt');
-})->name('ogolne.kontakt');
+})->name('ogolne.kontakt'); */
+Route::get('/kontakty',[StartController::class, 'kontakt'])->name('ogolne.kontakt');
 
-Route::get('/onas', function () {
+/* Route::get('/onas', function () {
     $zadania = [
         'Zadania 1',
         'Zadania 2',
         'Zadania 3'
     ];
     return view('ogolne.onas', [ 'zadania' => $zadania]);
-})->name('ogolne.onas');
+})->name('ogolne.onas'); */
+
+Route::get('/onas',[StartController::class, 'onas'])->name('ogolne.onas');
