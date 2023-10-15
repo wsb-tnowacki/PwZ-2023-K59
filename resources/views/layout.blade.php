@@ -55,6 +55,16 @@
                                 </div>
 
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">@yield('podtytul')</h2>
+                                @if (session()->has('message'))
+                                    <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong>{{ session()->get('message') }}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                    </div>
+                    @endif
 
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                                     @yield('tresc')

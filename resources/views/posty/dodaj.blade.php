@@ -12,6 +12,11 @@
         {{-- dump($errors) --}}
         <div class="alert alert-danger">
             Uzupełnij właściwe pola
+            @foreach ($errors->all() as $error)
+                    <p>
+                       {{ $error }} 
+                    </p>
+                @endforeach
         </div>
         @endif
         <div class="form-group">
