@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\StartController;
+use \App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +40,5 @@ Route::controller(StartController::class)->group(function(){
     Route::get('/kontakty','kontakt')->name('ogolne.kontakt');
     Route::get('/onas','onas')->name('ogolne.onas');
 });
+
+Route::resource('posty', PostController::class);
