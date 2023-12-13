@@ -14,7 +14,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        return view('posty.index');
+        $posty = Posty::all(); // $posty = new Posty(); $posty->all();
+        return view('posty.index', compact('posty'));
     }
 
     /**
@@ -59,7 +60,9 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // echo "Show: $id";
+        $post = Posty::find($id);
+        return view('posty.post', compact('post'));
     }
 
     /**
@@ -68,6 +71,7 @@ class PostController extends Controller
     public function edit(string $id)
     {
         //
+        echo "Edit: $id";
     }
 
     /**
@@ -75,7 +79,7 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        echo "Update: $id";
     }
 
     /**
@@ -83,6 +87,6 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        echo "Destroy: $id";
     }
 }
