@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostStoreRequest;
+use App\Models\Posty;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -44,6 +45,12 @@ class PostController extends Controller
             'email' => 'required|email:rfc,dns',
             'tresc' => 'required|min:3'
         ]); */
+        $posty = new Posty();
+        $posty->tytul = request('tytul');
+        $posty->autor = request('autor');
+        $posty->email = request('email');
+        $posty->tresc = request('tresc');
+        $posty->save();
         return redirect()->route('posty.index')->with('message', 'Dodano poprawnie');
     }
 
