@@ -18,9 +18,34 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
     <body class="antialiased">
-        <nav class="flex justify-center">
-            <p><a href="{{ route('ogolne.start') }}">Start</a> | <a href="{{ route('ogolne.onas') }}">O nas</a> | <a href="{{ route('ogolne.kontakt') }}">Kontakt</a></p>
-        </nav>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+              <a class="navbar-brand" href="{{ route('ogolne.start') }}">Start</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('ogolne.onas') }}">O nas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('ogolne.kontakt') }}">Kontakt</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Posty
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{{ route('posty.index') }}">Lista postów</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="{{ route('posty.create') }}">Dodaj posta</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
@@ -35,7 +60,7 @@
                     @endauth
                 </div>
             @endif
-           
+
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div class="flex justify-center">
                     <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
