@@ -25,4 +25,10 @@ class StartController extends Controller
         ];
         return view('ogolne.onas')->with('zadania',$zadania);
     }
+
+    public function wyloguj()
+    {
+        auth()->logout();
+        return view('ogolne.start');
+    }
 }

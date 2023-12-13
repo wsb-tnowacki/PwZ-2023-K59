@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\StartController;
 use \App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +41,10 @@ Route::controller(StartController::class)->group(function(){
     Route::get('/','lista')->name('ogolne.start');
     Route::get('/kontakty','kontakt')->name('ogolne.kontakt');
     Route::get('/onas','onas')->name('ogolne.onas');
+    Route::get('/wyloguj','wyloguj')->name('ogolne.wyloguj');
 });
 
 Route::resource('posty', PostController::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
